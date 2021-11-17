@@ -17,7 +17,7 @@ const StyledButton = styled.a`
 	line-height: 1;
 	outline: none;
 	border: none;
-	border-radius: 15px;
+	border-radius: 10px;
 	background-image: linear-gradient(270deg, #ffc115 0%, #f15025 100%);
 	background-size: 150%;
 	background-position: 0% 50%;

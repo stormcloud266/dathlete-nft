@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Header } from '../components/global'
-import { Hero } from '../components/landing'
+import { Hero, Cards } from '../components/landing'
 
 export function LandingPage() {
 	return (
@@ -8,6 +8,7 @@ export function LandingPage() {
 			<Header />
 			<Main>
 				<Hero />
+				<Cards />
 			</Main>
 		</>
 	)

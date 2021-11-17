@@ -1,80 +1,113 @@
+import Image from 'next/image'
 import styled from 'styled-components'
+import { breakpoints } from '../../styles'
+import { Wrapper } from '../UI'
 
 const Cards = () => {
+	const data = [
+		{
+			title: 'Title Placeholder',
+			image:
+				'https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic distinctio neque vero!',
+		},
+		{
+			title: 'Title Placeholder',
+			image:
+				'https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic distinctio neque vero!',
+		},
+		{
+			title: 'Title Placeholder',
+			image:
+				'https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg',
+			description:
+				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic distinctio neque vero!',
+		},
+	]
 	return (
 		<Section>
-			<ContentFrame>
-				<Title>Accomplish Feats</Title>
-				<div style={{ position: 'relative', height: 200, width: 200 }}>
-					<Image
-						src='https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg'
-						layout='fill'
-						objectFit='cover'
-						quality={100}
-						style={{ display: 'block' }}
-					/>
-				</div>
-			</ContentFrame>
-			<ContentFrame>
-				<Title>Crowdfund Goals</Title>
-				<div style={{ position: 'relative', height: 200, width: 200 }}>
-					<Image
-						src='https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg'
-						layout='fill'
-						objectFit='cover'
-						quality={100}
-						style={{ display: 'block' }}
-					/>
-				</div>
-				<Text></Text>
-			</ContentFrame>
-
-			<ContentFrame>
-				<Title>Immutable Athletes</Title>
-				<div style={{ position: 'relative', height: 200, width: 200 }}>
-					<Image
-						src='https://www.boredpanda.com/blog/wp-content/uploads/2017/12/funny-weird-wtf-stock-photos-19-5a3926af95d9d__700.jpg'
-						layout='fill'
-						objectFit='cover'
-						quality={100}
-						style={{ display: 'block' }}
-					/>
-				</div>
-			</ContentFrame>
+			<Wrapper>
+				<Row>
+					{data.map(({ image, title, description }) => (
+						<CardBg>
+							<Card>
+								<Image src={image} height={70} width={70} />
+								<Title>{title}</Title>
+								<Text>{description}</Text>
+							</Card>
+						</CardBg>
+					))}
+				</Row>
+			</Wrapper>
 		</Section>
 	)
 }
 
 export default Cards
 
-const Text = styled.p`
-	color: black;
-	font-size: clamp(12px, 2vw, 18px);
-	margin: 0;
-	/* font-family: Raleway; */
-`
-
-const Title = styled.p`
-	font-size: clamp(18px, 2.5vw, 36px);
-	color: black;
-	margin: 0;
-	font-family: Montserrat;
-`
-
 const Section = styled.section`
-	width: 100%;
+	margin-bottom: 6rem;
+	@media ${breakpoints.md} {
+		margin-top: 4rem;
+	}
+`
+const Row = styled.div`
 	display: flex;
-	justify-content: space-around;
-	@media (max-width: 768px) {
+	@media ${breakpoints.md} {
+		width: 100%;
+		max-width: 56rem;
 		flex-direction: column;
 	}
 `
 
-const ContentFrame = styled.div`
-	margin: 1rem 1rem 1rem 1rem;
-	display: flex;
+const CardBg = styled.div`
 	flex: 1;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: column;
+	margin-right: 2rem;
+	border-radius: 10px;
+	padding: 0.2rem;
+
+	background-image: linear-gradient(
+		to right,
+		#3a343a 50%,
+		#f15025 50%,
+		#ffc115
+	);
+	background-size: 200%;
+	background-position: 0% 50%;
+	transition: all 0.3s;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover {
+		background-position: 100% 50%;
+		transform: scale(1.02);
+	}
+
+	@media ${breakpoints.md} {
+		margin-right: 0;
+		margin-bottom: 2rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 `
+
+const Card = styled.div`
+	text-align: center;
+	padding: 4.6rem 1rem;
+	border-radius: 10px;
+	position: relative;
+	z-index: 3;
+	background-color: #1a181a;
+`
+
+const Title = styled.h3`
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+`
+const Text = styled.p``
