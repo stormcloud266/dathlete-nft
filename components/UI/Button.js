@@ -24,6 +24,7 @@ const StyledButton = styled.a`
 	transition: background-position 0.2s;
 	color: white;
 	cursor: pointer;
+	text-align: center;
 
 	&:hover {
 		background-position: 100% 50%;
@@ -33,7 +34,7 @@ const StyledButton = styled.a`
 `
 
 const Text = styled.span`
-	font-size: clamp(14px, 2vw, 18px);
+	font-size: clamp(1.6rem, 2vw, 1.8rem);
 	margin: 0;
 	font-family: Montserrat, sans-serif;
 	text-shadow: 1px 1px #1b181b;
