@@ -2,35 +2,39 @@ import styled from 'styled-components'
 
 const Button = ({ href, children }) => {
 	return (
-		<a href={href}>
-			<ButtonFrame>
-				<Text>{children}</Text>
-			</ButtonFrame>{' '}
-		</a>
+		<StyledButton href={href}>
+			<Text>{children}</Text>
+		</StyledButton>
 	)
 }
 
 export default Button
 
-const ButtonFrame = styled.span`
+const StyledButton = styled.a`
 	display: inline-block;
 	background-color: #6284ff;
-	padding: 0.4rem 2.4rem;
+	padding: 1.2rem 2.8rem;
+	line-height: 1;
 	outline: none;
 	border: none;
 	border-radius: 15px;
-	background-image: linear-gradient(270deg, #fb0c66 0%, #f89056 100%);
-	&::hover {
-		background-position: right center; /* change the direction of the change here */
+	background-image: linear-gradient(270deg, #ffc115 0%, #f15025 100%);
+	background-size: 150%;
+	background-position: 0% 50%;
+	transition: background-position 0.2s;
+	color: white;
+	cursor: pointer;
+
+	&:hover {
+		background-position: 100% 50%;
 		color: #fff;
 		text-decoration: none;
 	}
-	z-index: 1;
 `
 
-const Text = styled.p`
-	color: black;
-	font-size: clamp(12px, 2vw, 18px);
+const Text = styled.span`
+	font-size: clamp(14px, 2vw, 18px);
 	margin: 0;
-	/* font-family: Raleway; */
+	font-family: Montserrat, sans-serif;
+	text-shadow: 1px 1px #1b181b;
 `

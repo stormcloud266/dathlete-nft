@@ -34,15 +34,17 @@ const StyledHero = styled.section`
 	align-items: center;
 `
 const Row = styled.div`
+	margin-top: 10rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 `
 const TextContainer = styled.div`
-	max-width: 660px;
+	max-width: 66rem;
+	padding-right: 1.8rem;
 `
 const Heading = styled.h1`
-	font-size: 48px;
+	font-size: 4.8rem;
 	margin-bottom: 3rem;
 `
 const VideoContainer = styled.section``

@@ -17,7 +17,6 @@ const Main = styled.main`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	background: rgba(230, 255, 255, 1);
 	width: 100vw;
 	height: 100vh;
 `

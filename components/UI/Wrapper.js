@@ -8,7 +8,7 @@ export default Wrapper
 
 const StyledWrapper = styled.div`
 	width: 100%;
-	max-width: 120rem;
+	max-width: 128rem;
 	margin-left: auto;
 	margin-right: auto;
 	padding-left: 1.8rem;
