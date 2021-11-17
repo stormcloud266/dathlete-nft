@@ -44,7 +44,6 @@ const Row = styled.div`
 	align-items: center;
 
 	@media ${breakpoints.md} {
-		margin-top: 5rem;
 		flex-direction: column;
 		align-items: flex-start;
 	}

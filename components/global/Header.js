@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import { Button, Wrapper } from '../UI'
+import { breakpoints } from '../../styles'
 import logo from '../../assets/logo.svg'
 
 const Header = () => {
@@ -18,7 +19,7 @@ const Header = () => {
 
 					<ButtonFrame>
 						<Button href='https://t.me/TheDathleteExperiment'>
-							Join the Telegram
+							<HideOnSmall>Join the </HideOnSmall>Telegram
 						</Button>
 					</ButtonFrame>
 				</Row>
@@ -31,6 +32,7 @@ export default Header
 
 const StyledHeader = styled.header`
 	position: fixed;
+	z-index: 99;
 	width: 100%;
 	background-image: linear-gradient(to right, #ffc115, #f15025, #2c112e);
 	padding: 0.4rem 0 0;
@@ -48,7 +50,10 @@ const ImageFrame = styled.div`
 `
 
 const ImageContainer = styled.div`
-	max-width: 100px;
+	max-width: 10rem;
+	@media ${breakpoints.md} {
+		max-width: 8rem;
+	}
 `
 
 const Logo = styled(Image)`
@@ -60,12 +65,18 @@ const Title = styled.p`
 	color: white;
 	text-shadow: 0px 1px #1b181b;
 	flex: 2;
-	margin: 0;
 	font-family: Montserrat;
 	text-align: center;
+	padding: 0 0.6rem;
 `
 
 const ButtonFrame = styled.div`
 	flex: 1;
 	text-align: right;
+`
+
+const HideOnSmall = styled.span`
+	@media ${breakpoints.md} {
+		display: none;
+	}
 `

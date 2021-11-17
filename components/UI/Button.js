@@ -14,7 +14,7 @@ const StyledButton = styled.a`
 	display: inline-block;
 	background-color: #6284ff;
 	padding: 1.2rem 2.8rem;
-	line-height: 1;
+	line-height: 1.2;
 	outline: none;
 	border: none;
 	border-radius: 10px;
