@@ -14,7 +14,7 @@ import * as IPFS from 'ipfs-http-client';
 import { Purchase } from './purchase';
 import WalletConnectProvider from '@walletconnect/web3-provider';
 
-const showLanding = true;
+const showLanding = false;
 const showPurchase = false;
 
 const providerOptions = {
