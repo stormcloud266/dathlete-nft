@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { useCallback, useEffect, useState } from 'react';
 import constants from '/constants';
 import styled from 'styled-components';
-import { useDropzone } from 'react-dropzone';
+import Player from 'react-player';
 import { Formik } from 'formik';
 
 import ERC20 from '/artifacts/contracts/interfaces/IERC20.sol/IERC20.json';
@@ -52,29 +52,7 @@ export function Mint(props) {
     }
   }, [web3Provider]);
 
-  const onDrop = useCallback((acceptedFiles) => {
-    const url = URL.createObjectURL(acceptedFiles[0]);
-    setVideoUri(url);
-  }, []);
-
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone({
-    accept: 'video/*',
-    multiple: false,
-    onDrop,
-  });
-
-  async function addToPinata(e) {
-    const file = acceptedFiles[0];
-    let ipfs = await IPFS.create({
-      url: 'https://api.pinata.cloud/psa',
-    });
-
-    const { cid } = await ipfs.add(file);
-    console.log('cid: ', cid);
-    const url = `https://gateway.pinata.cloud/ipfs/${cid.string}`;
-    setVideoUri(url);
-    setIsIPFSUpload(true);
-  }
+  async function showIpfs() {}
 
   const addChallengeType = (values) => {
     const challenge = {
@@ -117,18 +95,58 @@ export function Mint(props) {
   // };
   return (
     <Main>
-      {acceptedFiles.length > 0 ? (
+      {videoUri ? (
         <div>
-          <ButtonFrame onClick={addToPinata}>
-            <p>Upload to IPFS</p>
-          </ButtonFrame>
           {!!videoUri && <Player autoPlay={true} controls url={videoUri} />}
         </div>
       ) : (
-        <DropzoneWrapper {...getRootProps({ className: 'dropzone' })}>
-          <input {...getInputProps()} />
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        </DropzoneWrapper>
+        <Formik
+          initialValues={{ cid: '' }}
+          onSubmit={({ cid }, { setSubmitting }) => {
+            setVideoUri('https://gateway.pinata.cloud/ipfs/' + cid);
+            setSubmitting(false);
+          }}
+        >
+          {({
+            values,
+
+            errors,
+
+            touched,
+
+            handleChange,
+
+            handleBlur,
+
+            handleSubmit,
+
+            isSubmitting,
+
+            /* and other goodies */
+          }) => (
+            <form onSubmit={handleSubmit}>
+              <div>
+                <Input
+                  name="cid"
+                  placeholder="cid"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  border={errors.name && '1px solid red'}
+                  value={values.name}
+                />
+
+                {errors.cid && touched.cid && errors.cid}
+              </div>
+              <button type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+
+              {/* <ButtonFrame onClick={uploadToIpfs}>
+                <p>Upload to IPFS</p>
+              </ButtonFrame> */}
+            </form>
+          )}
+        </Formik>
       )}
       <div>
         <p>{JSON.stringify(challengeType)}</p>
