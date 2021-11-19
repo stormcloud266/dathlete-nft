@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { Button, Wrapper } from '../UI'
 import { breakpoints } from '../../styles'
 import Player from 'react-player'
@@ -9,7 +9,7 @@ const Hero = () => {
 			<Wrapper>
 				<Row>
 					<TextContainer>
-						<Heading>This is going to be awesome</Heading>
+						<Heading>The Dathlete Experiment</Heading>
 						<Button href='https://medium.com'>Read the Medium Article</Button>
 					</TextContainer>
 					<VideoContainer>
@@ -38,6 +38,7 @@ const StyledHero = styled.section`
 	justify-content: center;
 	align-items: center;
 `
+
 const Row = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -59,10 +60,37 @@ const TextContainer = styled.div`
 	}
 `
 
+const gradientAnimation = keyframes`
+	0% {
+		background-position: 50% 50%;
+	}
+	33% {
+		background-position: 100% 200%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
+`
+
 const Heading = styled.h1`
-	font-size: 4.8rem;
-	font-size: clamp(3.6rem, 4.5vw, 4.8rem);
+	font-size: clamp(3.6rem, 4.5vw, 5.6rem);
 	margin-bottom: 3rem;
+
+	background: linear-gradient(
+		135deg,
+		#127eb7,
+		#88e1f3,
+		#127eb7,
+		#88e1f3,
+		#d8f9ff,
+		#d8f9ff
+	);
+	background-size: 200%;
+	animation: ${gradientAnimation} 15s infinite alternate;
+
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 `
 
 const VideoContainer = styled.div`

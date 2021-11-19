@@ -15,8 +15,6 @@ const Header = () => {
 						</ImageContainer>
 					</ImageFrame>
 
-					<Title>The Dathlete Experiment</Title>
-
 					<ButtonFrame>
 						<Button href='https://t.me/TheDathleteExperiment'>
 							<HideOnSmall>Join the </HideOnSmall>Telegram
@@ -31,11 +29,11 @@ const Header = () => {
 export default Header
 
 const StyledHeader = styled.header`
-	position: fixed;
+	position: absolute;
 	z-index: 99;
 	width: 100%;
-	background-image: linear-gradient(to right, #ffc115, #f15025, #2c112e);
-	padding: 0.4rem 0 0;
+	/* background-image: linear-gradient(to right, #ffc115, #f15025, #2c112e); */
+	padding: 1.2rem 0 0;
 `
 
 const Row = styled.header`
