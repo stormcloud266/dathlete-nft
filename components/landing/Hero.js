@@ -109,7 +109,7 @@ const VideoContainer = styled.div`
 `;
 
 const VideoAspect = styled.div`
-  aspect-ratio: 9/16;
+  aspect-ratio: 16/9;
 `;
 
 const PlayerFrame = styled(Player)``;
@@ -117,7 +117,7 @@ const PlayerFrame = styled(Player)``;
 const Black = styled.div`
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   background: black;
   width: 100%;
   height: 100%;
