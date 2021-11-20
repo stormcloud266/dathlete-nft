@@ -16,7 +16,7 @@ const Header = () => {
 					</ImageFrame>
 
 					<ButtonFrame>
-						<Button href='https://t.me/TheDathleteExperiment'>
+						<Button href='https://telegram.me/collablandbot?start=VFBDI1RFTCNDT01NIy0xMDAxNTYzNjc5NzAz' target="_blank">
 							<HideOnSmall>Join the </HideOnSmall>Telegram
 						</Button>
 					</ButtonFrame>
